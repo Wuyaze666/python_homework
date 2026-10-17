@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task": "current_record_alarm_classification",
+  "labels": [0, 1, 2, 3, 4, 5],
+  "exclude_variables": ["POSITION", "PIDNameNotAvailable"],
+  "target_ratios": [0.6, 0.2, 0.2],
+  "split_unit": "whole_existing_observation_segment",
+  "cut_objective": "sum_absolute_record_count_deviation_from_60_20_20",
+  "tie_break": "earliest_train_cut_then_earliest_validation_cut",
+  "two_segment_policy": "first_train_last_test_no_validation",
+  "one_segment_policy": "train_only_no_internal_holdout",
+  "history_window_seconds": 60,
+  "maximum_asof_ttl_seconds": 60,
+  "guard_seconds": 120,
+  "guard_policy": "require_full_raw_segment_boundary_gap_strictly_greater_than_guard",
+  "feature_source_policy": "same_vehicle_same_segment_no_future_no_label_history",
+  "episode_policy": "same_vehicle_same_segment_same_variable; exclude_entire_episode_if_crossing_fixed_split",
+  "test_policy": "freeze_method_before_final_test_no_repeated_test_selection",
+  "loco_policy": "held_vehicle_all_candidates_test; other_vehicles_main_train_train_main_validation_validation_main_test_unused",
+  "random_seed": 42,
+  "randomness_used": false
+}
