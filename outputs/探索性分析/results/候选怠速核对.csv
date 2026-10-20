@@ -1,0 +1,13 @@
+scope,representation,vehicle,windows,speed_rpm_known,candidate_idle,candidate_fraction_of_known,paired_idling_flag,both_true,candidate_true_flag_false,candidate_false_flag_true,both_false
+all_descriptive,unfilled,V1,2474,1770,84,0.04745762712,804,46,37,337,384
+all_descriptive,unfilled,V2,206,72,34,0.4722222222,54,10,24,1,19
+all_descriptive,unfilled,V3,452,396,3,0.007575757576,146,3,0,61,82
+development,unfilled,V1,2084,1442,79,0.0547850208,683,45,33,291,314
+development,unfilled,V2,143,43,33,0.7674418605,41,10,23,0,8
+development,unfilled,V3,346,319,1,0.003134796238,104,1,0,33,70
+all_descriptive,aligned,V1,2474,1807,93,0.05146651909,1738,53,39,584,1062
+all_descriptive,aligned,V2,206,76,36,0.4736842105,76,10,26,1,39
+all_descriptive,aligned,V3,452,403,4,0.009925558313,374,4,0,118,252
+development,aligned,V1,2084,1468,86,0.05858310627,1420,51,34,492,843
+development,aligned,V2,143,46,35,0.7608695652,46,10,25,0,11
+development,aligned,V3,346,323,1,0.003095975232,295,1,0,70,224

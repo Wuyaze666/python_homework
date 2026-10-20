@@ -1,0 +1,17 @@
+{
+  "core_features": ["vehicle_speed", "engine_rpm", "acceleration_x", "acceleration_y", "acceleration_z"],
+  "pairs": [["vehicle_speed", "engine_rpm"], ["throttle_position", "engine_rpm"], ["calculated_engine_load", "engine_rpm"]],
+  "scopes": ["all_descriptive", "development"],
+  "development_splits": ["train", "validation"],
+  "review_flags": ["high_value_review", "protocol_value_review", "numeric_parse_failure"],
+  "strict_pair_time_difference_seconds": 2,
+  "raw_line_max_gap_seconds": 30,
+  "window_continuity_seconds": 10,
+  "top_changes_per_vehicle_feature": 3,
+  "typical_interval_selection": "development_only_longest_consecutive_10s_unfilled_all5_complete_then_earliest",
+  "target_scope": "development_only",
+  "unit_status": "unverified_raw_units_no_speed_derivative",
+  "random_seed": 42,
+  "randomness_used": false,
+  "plot_purpose": "diagnostic_only_formal_presentation_deferred"
+}
