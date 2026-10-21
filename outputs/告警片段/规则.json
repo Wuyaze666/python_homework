@@ -1,0 +1,18 @@
+{
+  "scope": "development=train+validation; test only receives frozen episode construction and membership audit",
+  "min_positive_intervals": 10,
+  "fast_median_seconds": 5,
+  "fast_candidates_seconds": [10, 20, 30],
+  "slow_multipliers": [1, 2, 3],
+  "round_seconds": 5,
+  "min_gap_seconds": 10,
+  "max_gap_seconds": 180,
+  "fallback_median_seconds": 5,
+  "selected_candidate": 1,
+  "selection_reason": "预先固定中间候选；仅用开发采样时间确定，不优化标签合并率或模型成绩",
+  "state_features": ["vehicle_speed", "engine_rpm", "acceleration_x", "acceleration_y", "acceleration_z", "throttle_position", "calculated_engine_load", "idling"],
+  "case_half_window_seconds": 60,
+  "case_min_each_side_speed_rpm_readings": 4,
+  "case_targets": [["V1", "vehicle_speed", 3], ["V3", "vehicle_speed", 4], ["V1", "idling", 5]],
+  "seed": 0
+}
