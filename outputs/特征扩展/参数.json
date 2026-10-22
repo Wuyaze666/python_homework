@@ -1,0 +1,22 @@
+{
+  "stage": 5,
+  "seed": 42,
+  "stability_seeds": [43, 44],
+  "state_features": ["vehicle_speed", "engine_rpm", "acceleration_x", "acceleration_y", "acceleration_z", "throttle_position", "calculated_engine_load", "idling", "ignition_status", "towing"],
+  "binary_features": ["idling", "ignition_status", "towing"],
+  "history_continuous": ["vehicle_speed", "engine_rpm"],
+  "history_windows": [30, 60],
+  "history_policy": "strict past [t-window,t); original readings only; same vehicle and segment; invalid readings omitted from statistics and counted; no labels",
+  "b_policy": "latest same-vehicle same-segment timestamp <= target timestamp; TTL from frozen cleaning dictionary; latest invalid blocks earlier valid; simultaneous timestamp batch assumed available",
+  "feature_gain_min": 0.005,
+  "vehicle_macro_drop_max": 0.02,
+  "normal_recall_drop_max": 0.02,
+  "tie_macro_tolerance": 0.002,
+  "c_gate_min_binary_errors": 20,
+  "random_forest": {"n_estimators": 200, "max_depth": 16, "min_samples_leaf": 3, "max_features": "sqrt", "class_weight": "balanced_subsample", "n_jobs": 1},
+  "decision_tree": {"max_depth": 8, "min_samples_leaf": 10, "class_weight": "balanced"},
+  "sequence": ["A RF exact replay; A unweighted control", "B values RF and tree; B plus age RF", "accept each feature increment only if macro gain >=0.005 and per-vehicle supported Macro-F1/normal recall no worse than parent by >0.02", "if accepted B leaves >=20 binary errors, test C30; only after C30 acceptance test additional C60", "on chosen feature group: no weight, leaf10, depth24 separately vs fixed RF", "eligible models: validation normal recall and V1/V2 supported Macro-F1 >= A baseline minus0.02; best Macro-F1, within0.002 prefer fewer nodes then fewer encoded features then model id", "seeds43/44 repeat chosen configuration and A, for stability audit only; do not reselect"],
+  "sensitivity": ["selected model validation B states restricted to age<=2 seconds", "selected model validation B states with existing quality-review flags masked", "selected model validation history extended fields masked if their raw sources carry review flags", "selected model validation B excludes simultaneous OTHER-variable readings (current target value remains A)", "quality-flagged target vs other target errors"],
+  "test_policy": "No test feature matrix, model fitting, prediction, evaluation, or selection. No train+validation refit in stage5.",
+  "selection_status": "development recommendation only; stage6 freezes final method and evaluates reserved test"
+}
