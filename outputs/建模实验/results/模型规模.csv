@@ -1,0 +1,3 @@
+model,trees,encoded_features,total_nodes,max_observed_depth
+decision_tree_A,1,65,109,8
+random_forest_A,200,65,66390,16

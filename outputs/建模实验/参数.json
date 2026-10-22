@@ -1,0 +1,14 @@
+{
+  "stage": "方案04第9节阶段4：仅A组训练和验证，不执行最终测试",
+  "seed": 42,
+  "labels": [0, 1, 2, 3, 4, 5],
+  "feature_columns": ["variable_key", "value_type", "value_num"],
+  "numeric_types": ["continuous", "counter"],
+  "categorical_types": ["binary", "code"],
+  "numeric_imputation": "training median within variable; unseen/all-missing fallback 0 plus missing indicator",
+  "categorical_encoding": "training-only one-hot variable/type/variable-qualified discrete value; unknown ignored",
+  "decision_tree": {"max_depth": 8, "min_samples_leaf": 10, "class_weight": "balanced"},
+  "random_forest": {"n_estimators": 200, "max_depth": 16, "min_samples_leaf": 3, "max_features": "sqrt", "class_weight": "balanced_subsample", "n_jobs": 1},
+  "selection": "固定初始配置，不调参；主指标验证Macro-F1，保留全部结果，不宣布最终模型",
+  "test_policy": "不生成测试特征/预测/指标；只核对冻结索引的测试条数及输入文件哈希"
+}
