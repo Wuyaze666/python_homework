@@ -1,0 +1,38 @@
+{
+  "stage": 6,
+  "date": "2026-10-23",
+  "primary_model": "RF_A_depth24",
+  "primary_artifact": "outputs/特征扩展/models/推荐候选.joblib",
+  "primary_training": "original main train only, 52892; no refit on validation",
+  "feature_columns": ["variable_key", "value_type", "value_num"],
+  "selection_reason": "retain stage5 preregistered seed42 recommendation; unstable seed gain disclosed; do not choose again using test",
+  "main_test_records": 19662,
+  "main_models": ["global_majority", "variable_majority", "decision_tree_A", "RF_A_depth16", "RF_A_depth24"],
+  "main_metric": "six-class Macro-F1 if all classes supported; supported-class Macro-F1 otherwise, labelled explicitly",
+  "additional_metrics": ["accuracy", "per-class support precision recall F1", "confusion matrix", "0/nonzero", "per-car and per-segment"],
+  "loco": {
+    "held_vehicles": ["V1", "V2", "V3"],
+    "training": "other cars main train only",
+    "validation": "other cars main validation, diagnostic only, no selection",
+    "test": "held car ALL candidates",
+    "unused": "other cars main test",
+    "models": ["global_majority", "variable_majority", "decision_tree_A", "RF_A_depth16"],
+    "config_source": "outputs/建模实验/参数.json; fixed stage4 initial settings, no fold tuning",
+    "warning": "Main depth24 selection used held-car development labels; do not call it clean LOCO. Supplement uses fixed initial A models and separate fitting per fold. Prior full-data exploration disclosed."
+  },
+  "episode_evaluation": {
+    "scope": "main test primary model only; known-variable fixed existing episodes",
+    "any_alarm_detected": "at least one prediction !=0 inside true episode",
+    "any_correct_class": "at least one prediction equals true episode class",
+    "all_normal_miss": "every prediction==0",
+    "no_correct_class": "no prediction equals true class, including wrong nonzero classes",
+    "onset": "prediction at first observed record; observed delay to first detected record, no future warning claim",
+    "length_bins": ["1", "2-5", "6+"],
+    "loco_episode_evaluation": false
+  },
+  "error_review": "after frozen evaluation only: variable/class confusion, train seen/unseen value, quality flags, deterministic largest-error groups and cases; no feedback tuning",
+  "probabilities": "uncalibrated; fixed classes0..5; absent training class probability0; argmax ties choose lowest class",
+  "intervals": "No row-iid confidence intervals; report segment counts and small-car limits",
+  "seed": 42,
+  "final_test_policy": "One frozen primary evaluation; exact independent rerun is verification, not repeated selection. No threshold/model/feature adjustment from results."
+}
