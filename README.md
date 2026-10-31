@@ -6,7 +6,7 @@
 |---|---|---|---|
 |组长|评价方案、结果核查、汇报整合|[代码](outputs/评价准备/prepare_evaluation.py) · [阶段版本](https://github.com/Wuyaze666/python_homework/tree/v0.6.0)|[Word](成员报告/组长个人项目报告.docx) · [报告版本](https://github.com/Wuyaze666/python_homework/tree/v0.12.6)|
 |成员二|数据清洗、长宽表整理、运行探索|[代码](outputs/探索性分析/run_eda.py) · [阶段版本](https://github.com/Wuyaze666/python_homework/tree/v0.7.0)|[Word](成员报告/成员二个人项目报告.docx) · [报告版本](https://github.com/Wuyaze666/python_homework/tree/v0.12.7)|
-|成员三|告警分段、模型验证、错误与跨车评价|[代码](outputs/最终评价/run_final.py) · [阶段版本](https://github.com/Wuyaze666/python_homework/tree/v0.11.0)|—|
+|成员三|告警分段、模型验证、错误与跨车评价|[代码](outputs/最终评价/run_final.py) · [阶段版本](https://github.com/Wuyaze666/python_homework/tree/v0.11.0)|[Word](成员报告/成员三个人项目报告.docx) · [报告版本](https://github.com/Wuyaze666/python_homework/tree/v0.12.8)|
 
 [第8组汇报PPT](汇报/第8组汇报.pptx)
 
